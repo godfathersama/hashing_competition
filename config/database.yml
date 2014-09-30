@@ -12,7 +12,7 @@ default: &default
 
 development:
   <<: *default
-  username: hashing_competition
+  username: hashing
   password: 'dev'
 
 # Warning: The database defined as "test" will be erased and
@@ -20,9 +20,9 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  username: hashing_competition
+  username: hashing
   password: 'test'
 
 production:
   <<: *default
-  username: hashing_competition
+  username: hashing
