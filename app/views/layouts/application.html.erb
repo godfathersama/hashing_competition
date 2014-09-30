@@ -12,8 +12,17 @@
   </head>
 
   <body>
+    <div class="row">
+      <%= render 'layouts/header' %>
+    </div>
 
-    <%= yield %>
+    <div class="row">
+      <%= render 'layouts/alerts' %>
+
+      <div class="large-12 columns">
+        <%= yield %>
+      </div>
+    </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
