@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  before_create :assign_unique_hash
-  after_create :email_hash
-
   def index
     @users = User.all
   end
