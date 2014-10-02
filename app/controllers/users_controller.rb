@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_create :assign_unique_hash
+
   def index
     @users = User.all
   end
@@ -20,5 +22,13 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:email, :username)
+  end
+
+  def assign_unique_hash
+    self.hash = ActiveSupport::SecureRandom.hex(5) until unique_hash?
+  end
+
+  def unique_hash?
+    self.class.count(:conditions => {:hash => hash}) == 0
   end
 end
