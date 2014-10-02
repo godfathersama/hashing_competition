@@ -8,11 +8,12 @@
   <section class="top-bar-section">
     <!-- Left section -->
     <ul class="left">
-      <li><a href="">Leaderboard</a></li>
+      <li><%= link_to "Leaderboard", users_path %></li>
     </ul>
 
     <!-- Right section -->
     <ul class="right">
+      <li><%= link_to "Create User", sign_up_path %></li>
     </ul>
   </section>
 </nav>
