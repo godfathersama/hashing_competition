@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_create :assign_unique_hash
+  after_create :email_hash
 
   def index
     @users = User.all
@@ -30,5 +31,9 @@ class UsersController < ApplicationController
 
   def unique_hash?
     self.class.count(:conditions => {:hash => hash}) == 0
+  end
+
+  def email_hash
+    # @TODO send user's hash to their email address
   end
 end
