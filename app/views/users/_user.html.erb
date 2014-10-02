@@ -1,5 +1,5 @@
 <tr>
   <td> <%= user.username %> </td>
   <td> <%= user.score %> </td>
-  <td> <%= user.updated_at %> </td>
+  <td> <%= user.updated_at.strftime("%B %d, %Y %l:%M %p") %> </td>
 </tr>
