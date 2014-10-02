@@ -1,2 +1,26 @@
-<h1>Static#index</h1>
-<p>Find me in app/views/static/index.html.erb</p>
+<h1>UM ACM Hashing Competition!</h1>
+
+<p>
+The rules are pretty simple. Create an account by entering a username and
+email address (the email address can be used to recover your key). A key will
+be given to you that you will send along with your requests! Please, try not to
+lose it!
+</p>
+
+<br/>
+<p>
+The requests will be made to micha.elwillia.ms/attempt and will be in this format:
+</p>
+
+<ul>
+  Request format:
+  <li><em>Key</em>: your unique identifier</li>
+  <li><em>password</em>: your password attempt</li>
+</ul>
+
+<p>
+The resulting data will be your current score unless there is an error. If an
+error occurs, the returned data will simply be "ERROR". As the competition
+continues, these messages may become more verbose, but they will all start with
+the same "ERROR" substring.
+</p>
