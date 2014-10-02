@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get 'hashes/attempt'
+
   get 'users/index'
 
   root to: 'static#index'
-  get 'sign_up', to 'users#new', as: 'sign_up'
+  get 'sign_up', to: 'users#new', as: 'sign_up'
 
   resources :users, only: [:index, :new, :create]
 
