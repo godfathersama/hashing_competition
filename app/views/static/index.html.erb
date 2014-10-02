@@ -1,26 +1,49 @@
 <h1>UM ACM Hashing Competition!</h1>
 
 <p>
-The rules are pretty simple. Create an account by entering a username and
-email address (the email address can be used to recover your key). A key will
-be given to you that you will send along with your requests! Please, try not to
-lose it!
+  This competition is somewhat similar to a brute force attack. You will need
+  to send random strings of data to this server. This data will then be
+  encrypted into what's known as a hash. The encryption algorithm used is
+  SHA256.
 </p>
 
-<br/>
 <p>
-The requests will be made to micha.elwillia.ms/attempt and will be in this format:
+  The goal here is to find a hash value with the most leading zeros. Each
+  leading zero counts as a point. Your score will be the highest score that you
+  have gotten so far.
+</p>
+
+<p>
+  To enter the competition, please click "Create User" up at the top left and
+  fill out the form. Once the form is submitted, you will be given a unique
+  key. Make sure to keep this key secret and not to lose it! Each of your
+  attempts will require you to send this key along; so, it is important!
+</p>
+
+<p>
+  Once you have your key, send POST requests to http://micha.elwillia.ms/attempt
+  in with this data:
 </p>
 
 <ul>
-  Request format:
   <li><em>Key</em>: your unique identifier</li>
   <li><em>password</em>: your password attempt</li>
 </ul>
 
 <p>
-The resulting data will be your current score unless there is an error. If an
-error occurs, the returned data will simply be "ERROR". As the competition
-continues, these messages may become more verbose, but they will all start with
-the same "ERROR" substring.
+  The return value for your request will usually be your score. If there is an
+  error with your request, however, the returned value will start with "ERROR".
+  As the competition goes on, the error messages will likely get more exact
+  than simply error (e.g., ERROR INVALID USER), but they will all begin with
+  the substring "ERROR".
 </p>
+
+<p>
+  You can check the current leaders by clicking the "Leaderboard" link up in
+  the topbar.
+</p>
+
+<em>
+  Hint: It is a better use of your processing time to calculate the resulting
+  hash and only sending requests when you've beaten your previous score.
+</em>
