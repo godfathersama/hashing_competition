@@ -34,6 +34,6 @@ class UsersController < ApplicationController
   end
 
   def email_hash
-    # @TODO send user's hash to their email address
+    Notifier.send_registration_email(@user).deliver
   end
 end
