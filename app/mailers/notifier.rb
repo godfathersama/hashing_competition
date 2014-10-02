@@ -1,5 +1,5 @@
 class Notifier < ActionMailer::Base
-  default from: "noreply@elwillia.ms"
+  default from: "noreply@localhost"
 
   def send_registration_email(user)
     @user = user

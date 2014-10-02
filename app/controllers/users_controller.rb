@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to root_path
+      render :success
     else
       render :new
     end
@@ -20,17 +20,5 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:email, :username)
-  end
-
-  def assign_unique_hash
-    self.hash = ActiveSupport::SecureRandom.hex(5) until unique_hash?
-  end
-
-  def unique_hash?
-    self.class.count(:conditions => {:hash => hash}) == 0
-  end
-
-  def email_hash
-    Notifier.send_registration_email(@user).deliver
-  end
+  end 
 end
