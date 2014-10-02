@@ -1,24 +1,42 @@
 class HashesController < ApplicationController
+  layout false
+
   def attempt
     key = params[:key]
     attempt = params[:attempt]
 
-    @user = User.where(:hash => key).first
+    @user = User.where(:key => key).first
 
-    new_score = self.score_attempt(attempt)
+    if @user.nil?
+      @error = 'ERROR: NO SUCH USER'
+    else
+      new_score = self.score_attempt(attempt)
 
-    if @user.score < new_score
-      @user.score = new_score
-      if !@user.save
-        @error = 'ERROR SAVING NEW SCORE: TRY AGAIN!'
+      if @user.score.nil?
+        @user.score = new_score
+        @score = new_score
+
+        if !@user.save
+          @error = 'ERROR SAVING NEW SCORE: TRY AGAIN!'
+        end
+      elsif @user.score < new_score
+        @user.score = new_score
+        @score = new_score
+
+        if !@user.save
+          @error = 'ERROR SAVING NEW SCORE: TRY AGAIN!'
+        end
+      else
+        @score = @user.score
       end
     end
+      puts @score
   end
 
-  private
+  
   def score_attempt(attempt)
     digest = Digest::SHA256.hexdigest(attempt)
-    cout_leading_zeros(digest)
+    count_leading_zeros(digest)
   end
 
   def count_leading_zeros(digest)

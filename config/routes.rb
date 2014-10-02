@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'hashes/attempt'
+  post '/attempt' => 'hashes#attempt', :as => :attempt
 
   get 'users/index'
 

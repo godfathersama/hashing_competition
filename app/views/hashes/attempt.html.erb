@@ -1,2 +1,5 @@
-<h1>Hashes#attempt</h1>
-<p>Find me in app/views/hashes/attempt.html.erb</p>
+<% if @error %>
+  <%= @error %>
+<% else %>
+  <%= @score %>
+<% end %>
