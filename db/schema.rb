@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141002180105) do
+ActiveRecord::Schema.define(version: 20141003144458) do
+
+  create_table "attempts", force: true do |t|
+    t.integer  "user_id"
+    t.string   "hash"
+    t.integer  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"
