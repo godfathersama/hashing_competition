@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141003144458) do
+ActiveRecord::Schema.define(version: 20141003151730) do
 
   create_table "attempts", force: true do |t|
     t.integer  "user_id"
-    t.string   "hash"
+    t.string   "attempt"
     t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
