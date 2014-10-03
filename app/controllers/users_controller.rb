@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all.order('score DESC')
+    @users = User.all.order('score DESC, updated_at ASC')
   end
 
   def new
