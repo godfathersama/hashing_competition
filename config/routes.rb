@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post '/attempt' => 'attempts#index', :as => :attempt
 
   get 'users/index'
+  get '/updates', to: 'static#updates', as:'updates'
 
   root to: 'static#index'
   get 'sign_up', to: 'users#new', as: 'sign_up'
