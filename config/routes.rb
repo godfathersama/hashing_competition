@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  post '/attempt' => 'attempts#index', :as => :attempt
+  #post '/attempt' => 'attempts#index', :as => :attempt
 
   get 'users/index'
   get '/updates', to: 'static#updates', as:'updates'
