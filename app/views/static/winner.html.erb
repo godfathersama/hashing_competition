@@ -1,0 +1,13 @@
+<h1>The results are in!</h1>
+
+<% if @user && @user.first.attempts.first %>
+<h2>First place</h2>
+<p>
+  <b>Username:</b> <%= @user.first.username %><br/>
+  <b>Score:</b> <%= @user.first.score %><br/>
+  <b>Attempt:</b> <%= @user.first.attempts.order('score DESC, created_at ASC').first.attempt %><br/>
+  </p>
+<% else %>
+  <h2>No participants or attempts</h2>
+<% end %>
+
