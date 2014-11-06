@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'users/index'
   get '/updates', to: 'static#updates', as:'updates'
+  get '/winner', to: 'static#winner', as:'winner'
 
   root to: 'static#index'
   get 'sign_up', to: 'users#new', as: 'sign_up'
